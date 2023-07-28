@@ -71,7 +71,7 @@ module.exports = function (isProdMode) {
       }
     },
     {
-      test: /\.(png|jpg|svg|gif)$/,
+      test: /\.(png|jpg|svg|gif|webp)$/,
       type: 'asset',
       generator: {
         // [ext]前面自带"."
