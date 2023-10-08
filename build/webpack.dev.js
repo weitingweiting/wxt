@@ -26,11 +26,11 @@ const webpackDev = {
       'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
     }
     // proxy: {
-    //   '/wx': {
+    //   '/api': {
     //     // target: 'http://106.75.249.35:8011',
     //     // target: 'https://dev-api.jzcang.cn',
-    //     target: 'http://172.20.10.2:3004',
-    //     pathRewrite: { '^/wx': '' }
+    //     target: 'http://192.168.6.128:7999',
+    //     pathRewrite: { '^/api': '' }
     //   }
     // }
   }

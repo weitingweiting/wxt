@@ -1,5 +1,5 @@
 <template>
-  <div class="notfound">没有uuid,请正确扫码</div>
+  <el-empty description="404,页面丢失了" />
 </template>
 
 <script>

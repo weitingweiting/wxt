@@ -1,6 +1,6 @@
 <template>
   <div class="app-entry">
-    <NavBar />
+    <Menu />
     <router-view v-slot="{ Component }">
       <keep-alive v-if="$route.meta.keepAlive">
         <component :is="Component" :key="$route.fullPath"></component>
@@ -11,17 +11,14 @@
 </template>
 
 <script>
-import { defineComponent, ref, reactive, toRefs, onBeforeMount, onMounted, getCurrentInstance, provide } from 'vue'
-import NavBar from '@/views/components/navbar'
+import { defineComponent } from 'vue'
+import Menu from '@/layout/menu/index.vue'
 export default defineComponent({
   name: 'App',
-  components: { NavBar },
+  components: { Menu },
   props: [],
   setup() {
-    // provide('preUrl', window.location.href)
     return {}
   }
 })
 </script>
-
-<style lang="less" scoped></style>

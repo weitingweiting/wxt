@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 
 const routes = [
-  { path: '/', redirect: '/home' },
+  { path: '/', redirect: '/home', name: 'root' },
   {
     path: '/home',
     name: 'Home',
-    component: () => import(/* webpackChunkName: "Home" */ '../views/home/index.vue'),
+    component: () => import(/* webpackChunkName: "Home" */ '@/views/home/index.vue'),
     meta: {
       auth: false,
       keepAlive: false,
@@ -14,9 +14,20 @@ const routes = [
     }
   },
   {
-    path: '/notfound',
+    path: '/products',
+    name: 'Products',
+    component: () => import(/* webpackChunkName: "Products" */ '@/views/products/index.vue'),
+    meta: {
+      auth: false,
+      keepAlive: false,
+      needBack: false,
+      title: '产品中心'
+    }
+  },
+  {
+    path: '/:catchAll(.*)',
     name: 'Notfound',
-    component: () => import(/* webpackChunkName: "Notfound" */ '../views/404/index.vue'),
+    component: () => import(/* webpackChunkName: "Notfound" */ '@/views/404/index.vue'),
     meta: {
       auth: false,
       keepAlive: false,
@@ -34,6 +45,7 @@ const router = createRouter({
 
 // 全局前置守卫
 router.beforeEach((to, from, next) => {
+  // console.log(to, from)
   next()
 })
 
