@@ -1,12 +1,19 @@
 import { ref, shallowRef } from 'vue'
 import { queryActiveMenuList } from '@/api/index'
 
+const defaultIndex = ref('')
+
+const activeMenuList = shallowRef([])
+
+export const useGetStore = () => {
+  return {
+    activeMenuList,
+    defaultIndex
+  }
+}
+
 export const useMenuList = () => {
-  const activeMenuList = shallowRef([])
-
   const activeFullPath = shallowRef([])
-
-  const defaultIndex = ref('9')
 
   const getActiveMenuListFn = async () => {
     try {

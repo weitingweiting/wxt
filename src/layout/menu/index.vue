@@ -8,7 +8,7 @@
         </el-menu-item>
 
         <el-sub-menu index="2">
-          <template #title>关于汪洋</template>
+          <template #title>丝丝缕缕</template>
           <el-menu-item index="2-1">
             <router-link to="/home">item one</router-link>
           </el-menu-item>
@@ -70,7 +70,7 @@ const { activeMenuList, defaultIndex, handleSelect } = useMenuList()
 
 const SubItem = computed(() => {
   return (
-    <>
+    <div class={'active-menu-root'}>
       {activeMenuList.value.map((item) => {
         return (
           <router-link to={{ name: 'Products', query: { parentId: item?.id ?? '' } }}>
@@ -99,7 +99,7 @@ const SubItem = computed(() => {
           </router-link>
         )
       })}
-    </>
+    </div>
   )
 })
 

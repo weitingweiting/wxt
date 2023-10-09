@@ -29,10 +29,27 @@
 <script setup>
 import { useRoute } from 'vue-router'
 import { useProducts } from './hooks/use-products'
+import { onMounted } from 'vue'
+import { useGetStore } from '@/layout/menu/hooks/use-menu-list.jsx'
 
 const route = useRoute()
+
 const { getProductsFn } = useProducts()
+
 getProductsFn({ parentId: route.query.parentId, childId: route.query.childId })
+
+const { defaultIndex, activeMenuList } = useGetStore()
+
+onMounted(() => {
+  if (!!route.query.childId) {
+    defaultIndex.value = route.query.childId
+  } else {
+    setTimeout(() => {
+      const childId = activeMenuList.value.find((item) => item.id == route.query.parentId)?.childMenus[0]?.id
+      defaultIndex.value = childId + ''
+    }, 200)
+  }
+})
 </script>
 
 <style lang="scss" scoped>

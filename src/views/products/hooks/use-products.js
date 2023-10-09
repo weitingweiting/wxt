@@ -2,7 +2,6 @@ import { getProducts } from '../service/index'
 
 export const useProducts = () => {
   const getProductsFn = async ({ parentId = '', childId = '' }) => {
-    console.log(parentId, childId)
     const params = {
       parentId,
       childId
