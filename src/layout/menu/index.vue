@@ -83,13 +83,11 @@ const SubItem = computed(() => {
                       item.childMenus.length > 0 &&
                       item.childMenus.map((child) => {
                         return (
-                          <el-menu-item key={child.id} index={`${child.id}`}>
-                            <router-link
-                              style={{ width: '100%' }}
-                              to={{ name: 'Products', query: { parentId: child?.partentId ?? '', childId: child?.id ?? '' } }}>
+                          <router-link to={{ name: 'Products', query: { parentId: child?.partentId ?? '', childId: child?.id ?? '' } }}>
+                            <el-menu-item key={child.id} index={`${child.id}`}>
                               {child.productMenuName}
-                            </router-link>
-                          </el-menu-item>
+                            </el-menu-item>
+                          </router-link>
                         )
                       })}
                   </>
@@ -135,7 +133,6 @@ a:hover {
   font-size: 18px;
   color: #333;
   font-weight: bold;
-  border: 1px red solid;
 
   .nav-compan-icon {
     width: 260px;

@@ -25,6 +25,17 @@ const routes = [
     }
   },
   {
+    path: '/product-detail',
+    name: 'ProductDetail',
+    component: () => import(/* webpackChunkName: "Products" */ '@/views/product-detail/index.vue'),
+    meta: {
+      auth: false,
+      keepAlive: false,
+      needBack: false,
+      title: '产品详情'
+    }
+  },
+  {
     path: '/:catchAll(.*)',
     name: 'Notfound',
     component: () => import(/* webpackChunkName: "Notfound" */ '@/views/404/index.vue'),
